@@ -1,4 +1,4 @@
-<h1 align="center">🚀 CosmicTour - Interactive Space Exploration Website</h1>
+[<h1 align="center">🚀 CosmicTour - Interactive Space Exploration Website</h1>
 
 <p align="center">
   Embark on an extraordinary journey through the cosmos with <b>CosmicTour</b>! This interactive web experience is designed to immerse you in the awe-inspiring wonders of the universe. Explore celestial objects, uncover fascinating stories, and ignite your curiosity about the vast expanse beyond our world.
@@ -28,11 +28,10 @@ Get ready for launch! Follow these steps to set up CosmicTour on your local mach
 
 1.  **Clone the repository:**
 
-    ```bash
+    
+https://github.com/Prateek-u-bot/CosmicTour
    
-   https://github.com/Prateek-u-bot/CosmicTour
-    ```
----
+
 
 ## 🚀 Usage Details
 
@@ -68,3 +67,4 @@ Meet the stellar team behind CosmicTour:
   
 
 ---
+](https://github.com/Prateek-u-bot/CosmicTour)
