@@ -1,85 +1,46 @@
-<h1 align="center">🚀 CosmicTour - Interactive Space Exploration Website</h1>
+# CosmicTour - Interactive Space Exploration Website
 
-<p align="center">
-  Embark on an extraordinary journey through the cosmos with <b>CosmicTour</b>! This interactive web experience is designed to immerse you in the awe-inspiring wonders of the universe. Explore celestial objects, uncover fascinating stories, and ignite your curiosity about the vast expanse beyond our world.
-</p>
+This project delivers an interactive web experience, "CosmicTour," designed to immerse users in the wonders of the universe. Key features include animated visuals, interactive cards, and a blend of science and mythology.
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Space%20Exploration-CosmicTour-blueviolet?style=for-the-badge" alt="CosmicTour Badge">
-  <img src="https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-orange?style=for-the-badge" alt="Frontend Tech Badge">
-  <img src="https://img.shields.io/badge/Interactive-Experience-brightgreen?style=for-the-badge" alt="Interactive Badge">
-</div>
+## Project Description
 
-<br>
+The site offers a journey through the cosmos, highlighting celestial objects and their associated stories. It aims to engage users through rich visuals and intuitive exploration. Key sections include:
 
-## 🌌 Project Description
+* **Login:** A visually captivating login interface.
+* **Dashboard:** Interactive exploration of planets and stars.
+* **Explore:** In-depth information with educational and mythological content.
 
-CosmicTour invites you to explore the universe in an engaging and informative way. This website offers a captivating blend of stunning visuals and interactive features, allowing you to discover celestial objects and delve into their associated stories. Key sections include:
+## Setup Instructions
 
-* **Login:** A visually captivating login interface that sets the stage for your cosmic adventure.
-* **Dashboard:** An interactive hub for exploring planets, stars, and other celestial wonders.
-* **Explore:** In-depth information presented in engaging modals, blending scientific facts with intriguing mythological connections.
-
----
-
-## 🛠️ Setup Instructions
-
-Get ready for launch! Follow these steps to set up CosmicTour on your local machine:
-
-1.  **Clone the repository:**
+1.  Clone the repository:
 
     ```bash
-     https://github.com/Prateek-u-bot/CosmicTour
+    # Replace with your actual repository URL
+    git clone <YOUR_REPOSITORY_URL>
     ```
 
-2.  **Preview link:**
+2.  Open `index.html` (for the login page) or `main.html` (for the dashboard) in a browser.
 
-    ```bash
-    # Add your preview link here if available
-    # For example:
-    # Open index.html or main.html in your browser
-    ```
+## Usage Details
 
----
+* Experience the animated login screen.
+* Browse interactive cards on the main dashboard.
+* Explore detailed information in the "Explore" modals.
 
-## 🚀 Usage Details
+## Relevant Information
 
-Prepare for liftoff! Here's how to navigate and interact with CosmicTour:
+* Built with HTML, CSS (including CSS Animations and Glass UI), and JavaScript.
+* Focus on creating a visually engaging and interactive user experience.
+* Responsive design for accessibility across devices.
 
-* **Witness the cosmic login:** Be captivated by the animated login screen, featuring mesmerizing star effects.
-* **Explore the universe:** Navigate the main dashboard to discover interactive cards representing various celestial objects.
-* **Uncover the mysteries:** Click on the cards to open "Explore" modals, revealing fascinating details and stories.
+## Team Members
 
----
+* **Prateek Chaubey:**  Team Leader / Front-End Developer - [Specific responsibilities, e.g., "Developed the login page with star animations."]
+    * 
+* **[Team Member 2 Name]:** [Role/Contribution] - [Specific responsibilities, e.g., "Designed the UI/UX for the main dashboard."]
+    * [GitHub Profile URL]
+* **[Team Member 3 Name]:** [Role/Contribution] - [Specific responsibilities, e.g., "Implemented the interactive card functionality."]
+    * [GitHub Profile URL]
+* **[Team Member 4 Name]:** [Role/Contribution] - [Specific responsibilities, e.g., "Integrated the mythology content into the explore modals."]
+    * [GitHub Profile URL]
 
-## 💻 Relevant Information
-
-CosmicTour is built with the following technologies, carefully chosen to deliver a seamless and engaging experience:
-
-* **Languages:** HTML, CSS (including CSS Animations and Glass UI), JavaScript
-* **Focus:** Creating a visually stunning and highly interactive user experience
-* **Design:** Responsive design for optimal viewing across all devices
-
----
-
-## 🧑‍🚀 Team Members
-
-Meet the stellar team behind CosmicTour:
-
-* **Prateek Chaubey:** Team Leader / Front-End Developer
-    * Specific responsibilities: Developed the captivating star animations for the login page.
-    * [GitHub Profile](https://github.com/Prateek-u-bot/CosmicTour)
-* **Parag Dixit:** UI/UX Designer / Lead Front-End Developer
-    * Specific responsibilities: Crafted the intuitive UI/UX for the main dashboard and explore modals.
-    * [GitHub Profile](GitHub Profile URL) * **Bhoomika Jain:** Front-End Developer / Content Specialist
-    * Specific responsibilities: Weaved together the scientific facts and captivating mythological narratives.
-    * [GitHub Profile](GitHub Profile URL) * **Jahanvi Nayak:** Tester / Correction
-    * Specific responsibilities: Testing and Debugging
-    * [GitHub Profile](GitHub Profile URL) **Changes Made:**
-
-* **Fixed Prateek's Link:** Corrected the GitHub link for Prateek.
-* **Consistent Formatting:** Ensured consistent formatting (bullet points, headings, etc.) throughout.
-* **Clearer Preview Instructions:** Added a comment to make the preview link instructions clearer.
-* **Placeholder for Other Links:** I've added placeholders like `[GitHub Profile](GitHub Profile URL)` for the other team members. **Please replace `GitHub Profile URL` with the actual URLs.**
-
-This should be cleaner and more accurate!
