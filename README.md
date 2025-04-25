@@ -65,7 +65,7 @@ CosmicTour is built with the following technologies, carefully chosen to deliver
 Meet the stellar team behind CosmicTour:
 
 * **Prateek Chaubey:**  Team Leader/ Front-End Developer -Specific responsibilities, Developed the captivating star animations for the login page.
-    * GitHub Profile URL
+    * https://github.com/Prateek-u-bot/CosmicTour
 * **Parag Dixit:** UI/UX Designer/Lead Front-End Developer - Specific responsibilities,  Crafted the intuitive UI/UX for the main dashboard and explore modals.
     * GitHub Profile URL
 * **Bhoomika Jain:**  Front-End Developer/ Content Specialist - Specific responsibilities,  Weaved together the scientific facts and captivating mythological narratives.
