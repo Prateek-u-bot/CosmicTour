@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Login - Enhanced Appeal</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #030108; /* Even darker, almost black base */
+            overflow: hidden;
+            perspective: 1200px;
+        }
+
+        /* --- Background Layers --- */
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Animated Cosmic Gradient Background */
+        .cosmic-background {
+            background: linear-gradient(
+                -45deg,
+                hsl(265, 80%, 8%),  /* Slightly deeper purple */
+                hsl(230, 70%, 10%), /* Slightly deeper blue */
+                hsl(300, 75%, 12%), /* Magenta/Violet */
+                hsl(210, 70%, 9%),  /* Darker Blue */
+                hsl(265, 80%, 8%)   /* Loop back */
+            );
+            background-size: 400% 400%;
+            animation: cosmicDrift 35s ease infinite; /* Slightly slower */
+            z-index: -5; /* Deepest layer */
+            filter: brightness(0.8);
+            opacity: 1; /* Full opacity for base */
+        }
+
+        /* Galaxy/Nebula Layer */
+        .galaxy-layer {
+            z-index: -4; /* Above base gradient */
+            background:
+                radial-gradient(ellipse at 50% 50%, hsla(220, 100%, 85%, 0.28) 0%, hsla(220, 100%, 85%, 0) 55%),
+                radial-gradient(ellipse at 30% 70%, hsla(260, 80%, 60%, 0.2) 0%, hsla(260, 80%, 50%, 0) 65%),
+                radial-gradient(ellipse at 75% 35%, hsla(300, 70%, 65%, 0.15) 0%, hsla(300, 70%, 60%, 0) 60%);
+            filter: blur(35px); /* Slightly more blur */
+            opacity: 0.65; /* Base opacity */
+            animation:
+                slowRotate 200s linear infinite, /* Slower rotation */
+                pulse 12s ease-in-out infinite alternate; /* Subtle pulse */
+        }
+
+        /* --- Star Layers --- */
+
+        /* Generic Star Styling (applied via pseudo-elements) */
+        .star-layer-1::before, .star-layer-1::after,
+        .star-layer-2::before, .star-layer-2::after,
+        .star-layer-3::before, .star-layer-3::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8); /* Base color, overridden by box-shadow */
+            border-radius: 50%;
+            /* Base size, overridden by box-shadow */
+            width: 1px;
+            height: 1px;
+        }
+
+        /* Star Layer 1 (Brightest / Closest) */
+        .star-layer-1 { z-index: -1; } /* Closest star layer */
+        .star-layer-1::before {
+            /* Using box-shadow for multiple stars: x y blur spread color */
+            box-shadow:
+                /* Bright, slightly larger stars */
+                30vw 20vh 0 1px rgba(255, 255, 255, 0.9), 60vw 80vh 0 2px rgba(220, 220, 255, 0.8),
+                10vw 50vh 0 1px rgba(255, 255, 255, 1), 85vw 30vh 0 1px rgba(200, 200, 255, 0.9),
+                50vw 10vh 0 2px rgba(255, 255, 255, 0.85), 5vw 90vh 0 1px rgba(255, 255, 255, 0.95),
+                70vw 60vh 0 1px rgba(210, 210, 255, 1), 95vw 5vh 0 2px rgba(255, 255, 255, 0.8),
+                40vw 5vh 0 1px rgba(255, 255, 255, 0.9), 75vw 95vh 0 1px rgba(200, 200, 255, 0.8),
+                18vw 75vh 0 2px rgba(255, 255, 255, 0.9), 55vw 40vh 0 1px rgba(210, 210, 255, 1),
+                /* Added more */
+                22vw 65vh 0 1px rgba(255, 255, 255, 0.8), 88vw 15vh 0 2px rgba(200, 200, 255, 0.75),
+                4vw 25vh 0 1px rgba(255, 255, 255, 0.9), 68vw 45vh 0 1px rgba(220, 220, 255, 1);
+            animation: twinkle 5s infinite alternate ease-in-out;
+        }
+        .star-layer-1::after {
+            box-shadow:
+                /* More bright stars */
+                15vw 70vh 0 2px rgba(255, 255, 255, 0.8), 40vw 40vh 0 1px rgba(200, 200, 255, 0.95),
+                75vw 15vh 0 1px rgba(255, 255, 255, 1), 5vw 35vh 0 2px rgba(210, 210, 255, 0.8),
+                90vw 85vh 0 1px rgba(255, 255, 255, 0.9), 25vw 5vh 0 1px rgba(200, 200, 255, 1),
+                55vw 95vh 0 2px rgba(255, 255, 255, 0.75), 80vw 55vh 0 1px rgba(220, 220, 255, 0.9),
+                22vw 25vh 0 1px rgba(200, 200, 255, 0.85), 68vw 72vh 0 2px rgba(255, 255, 255, 0.9),
+                8vw 88vh 0 1px rgba(255, 255, 255, 1), 48vw 18vh 0 1px rgba(210, 210, 255, 0.9),
+                /* Added more */
+                33vw 55vh 0 2px rgba(255, 255, 255, 0.8), 77vw 30vh 0 1px rgba(200, 200, 255, 0.9),
+                12vw 10vh 0 1px rgba(255, 255, 255, 1), 98vw 70vh 0 2px rgba(220, 220, 255, 0.7);
+            animation: twinkle 6s infinite alternate ease-in-out;
+            animation-delay: -2.5s;
+        }
+
+        /* Star Layer 2 (Mid-distance / Denser) */
+        .star-layer-2 { z-index: -2; } /* Middle star layer */
+        .star-layer-2::before {
+            box-shadow: /* Denser field, medium brightness */
+                5vw 15vh 0 0 rgba(255, 255, 255, 0.7), 95vw 85vh 0 0 rgba(255, 255, 255, 0.6),
+                25vw 75vh 0 1px rgba(200, 200, 255, 0.7), 75vw 25vh 0 0 rgba(200, 200, 255, 0.65),
+                50vw 50vh 0 0 rgba(255, 255, 255, 0.8), 10vw 90vh 0 1px rgba(200, 200, 255, 0.5),
+                90vw 10vh 0 0 rgba(255, 255, 255, 0.7), 35vw 45vh 0 1px rgba(200, 200, 255, 0.6),
+                65vw 55vh 0 0 rgba(255, 255, 255, 0.75), 18vw 30vh 0 1px rgba(200, 200, 255, 0.7),
+                82vw 70vh 0 0 rgba(255, 255, 255, 0.6), 42vw 88vh 0 1px rgba(200, 200, 255, 0.55),
+                /* Added many more */
+                11vw 5vh 0 0 rgba(255, 255, 255, 0.7), 39vw 95vh 0 1px rgba(200, 200, 255, 0.6),
+                61vw 35vh 0 0 rgba(255, 255, 255, 0.7), 81vw 68vh 0 1px rgba(200, 200, 255, 0.5),
+                /* ... (Add 10-20 more similar lines with varied coords/opacity) ... */
+                28vw 18vh 0 0 rgba(255, 255, 255, 0.65), 58vw 82vh 0 1px rgba(210, 210, 255, 0.7);
+            animation: twinkle 8s infinite alternate ease-in-out;
+            animation-delay: -1s;
+        }
+         .star-layer-2::after {
+            box-shadow: /* Denser field, medium brightness */
+                8vw 40vh 0 1px rgba(255, 255, 255, 0.75), 62vw 90vh 0 0 rgba(200, 200, 255, 0.6),
+                33vw 12vh 0 1px rgba(255, 255, 255, 0.8), 88vw 60vh 0 0 rgba(200, 200, 255, 0.5),
+                12vw 65vh 0 1px rgba(255, 255, 255, 0.7), 58vw 22vh 0 0 rgba(200, 200, 255, 0.65),
+                28vw 82vh 0 1px rgba(255, 255, 255, 0.7), 70vw 5vh 0 0 rgba(200, 200, 255, 0.7),
+                92vw 35vh 0 1px rgba(255, 255, 255, 0.6), 45vw 78vh 0 0 rgba(200, 200, 255, 0.75),
+                3vw 95vh 0 1px rgba(255, 255, 255, 0.5), 51vw 48vh 0 0 rgba(200, 200, 255, 0.8),
+                /* Added many more */
+                19vw 29vh 0 1px rgba(255, 255, 255, 0.7), 71vw 81vh 0 0 rgba(210, 210, 255, 0.6),
+                41vw 51vh 0 1px rgba(255, 255, 255, 0.75), 91vw 8vh 0 0 rgba(200, 200, 255, 0.5),
+                /* ... (Add 10-20 more similar lines with varied coords/opacity) ... */
+                66vw 66vh 0 1px rgba(255, 255, 255, 0.6), 14vw 44vh 0 0 rgba(220, 220, 255, 0.7);
+            animation: twinkle 7s infinite alternate ease-in-out; /* Different speed */
+            animation-delay: -4.5s;
+        }
+
+        /* Star Layer 3 (Faint / Distant / Dense) */
+        .star-layer-3 { z-index: -3; } /* Farthest star layer */
+        .star-layer-3::before {
+            box-shadow: /* Tiny, faint, numerous stars */
+                /* Using 0px spread for points */
+                2vw 8vh 0 0 rgba(200, 200, 255, 0.4), 12vw 22vh 0 0 rgba(255, 255, 255, 0.3),
+                25vw 35vh 0 0 rgba(200, 200, 255, 0.5), 38vw 48vh 0 0 rgba(255, 255, 255, 0.2),
+                45vw 65vh 0 0 rgba(200, 200, 255, 0.4), 55vw 75vh 0 0 rgba(255, 255, 255, 0.3),
+                68vw 88vh 0 0 rgba(200, 200, 255, 0.5), 72vw 5vh 0 0 rgba(255, 255, 255, 0.2),
+                85vw 15vh 0 0 rgba(200, 200, 255, 0.4), 95vw 28vh 0 0 rgba(255, 255, 255, 0.3),
+                /* ... (Add MANY more - 30+ lines - for density) ... */
+                7vw 41vh 0 0 rgba(200, 200, 255, 0.3), 17vw 59vh 0 0 rgba(255, 255, 255, 0.4),
+                31vw 91vh 0 0 rgba(200, 200, 255, 0.2), 41vw 11vh 0 0 rgba(255, 255, 255, 0.5),
+                51vw 31vh 0 0 rgba(200, 200, 255, 0.3), 61vw 51vh 0 0 rgba(255, 255, 255, 0.4),
+                71vw 71vh 0 0 rgba(200, 200, 255, 0.2), 81vw 91vh 0 0 rgba(255, 255, 255, 0.5),
+                91vw 41vh 0 0 rgba(200, 200, 255, 0.3), 99vw 61vh 0 0 rgba(255, 255, 255, 0.4);
+
+            animation: twinkle 12s infinite alternate ease-in-out; /* Very slow twinkle */
+            animation-delay: -6s;
+        }
+        .star-layer-3::after {
+             box-shadow: /* More tiny, faint stars */
+                4vw 12vh 0 0 rgba(255, 255, 255, 0.3), 14vw 26vh 0 0 rgba(200, 200, 255, 0.4),
+                28vw 39vh 0 0 rgba(255, 255, 255, 0.2), 32vw 52vh 0 0 rgba(200, 200, 255, 0.5),
+                49vw 69vh 0 0 rgba(255, 255, 255, 0.3), 59vw 79vh 0 0 rgba(200, 200, 255, 0.4),
+                62vw 92vh 0 0 rgba(255, 255, 255, 0.2), 78vw 9vh 0 0 rgba(200, 200, 255, 0.5),
+                88vw 19vh 0 0 rgba(255, 255, 255, 0.3), 98vw 31vh 0 0 rgba(200, 200, 255, 0.4),
+                /* ... (Add MANY more - 30+ lines - for density) ... */
+                9vw 45vh 0 0 rgba(255, 255, 255, 0.4), 19vw 63vh 0 0 rgba(200, 200, 255, 0.3),
+                33vw 95vh 0 0 rgba(255, 255, 255, 0.5), 43vw 15vh 0 0 rgba(200, 200, 255, 0.2),
+                53vw 35vh 0 0 rgba(255, 255, 255, 0.4), 63vw 55vh 0 0 rgba(200, 200, 255, 0.3),
+                73vw 75vh 0 0 rgba(255, 255, 255, 0.5), 83vw 95vh 0 0 rgba(200, 200, 255, 0.2),
+                93vw 45vh 0 0 rgba(255, 255, 255, 0.4), 97vw 65vh 0 0 rgba(200, 200, 255, 0.3);
+
+             animation: twinkle 15s infinite alternate ease-in-out; /* Even slower */
+            animation-delay: -9s;
+        }
+
+        /* --- Shooting Star --- */
+        .shooting-star {
+            position: absolute;
+            top: 50%; /* Start position off-screen */
+            left: -100px;
+            width: 80px; /* Length of the star */
+            height: 2px; /* Thickness */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 6px rgba(200, 200, 255, 0.8));
+            animation: shoot 8s linear infinite; /* Animation timing */
+            animation-delay: 5s; /* Delay before first appearance */
+            z-index: 0; /* Above background, below card */
+            opacity: 0; /* Start invisible */
+        }
+
+
+        /* --- Keyframes --- */
+        @keyframes cosmicDrift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes slowRotate {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.05); } /* Add subtle scale */
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.6; }
+            to { opacity: 0.8; } /* Slightly more visible pulse */
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0) rotate(-30deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1; /* Fade in */
+            }
+            80% {
+                 opacity: 1; /* Visible for most of the duration */
+            }
+            100% {
+                /* Move across screen diagonally */
+                transform: translate(130vw, 70vh) rotate(-30deg);
+                opacity: 0; /* Fade out */
+            }
+        }
+
+
+        /* Login Card Styling (Minimal Changes) */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Ensure card is on top */
+            background: rgba(30, 20, 50, 0.3); /* Slightly more transparent to see background */
+            backdrop-filter: blur(12px); /* Slightly less blur */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(180, 160, 220, 0.3); /* Slightly bolder border */
+            box-shadow: 0 12px 60px 8px rgba(5, 2, 10, 0.7); /* Deeper, wider shadow */
+        }
+
+        .card-content {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            color: #e0e0ff;
+            text-align: center;
+        }
+
+        .card-content h2 {
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(210, 210, 255, 0.7); /* Slightly brighter glow */
+            transform: translateZ(60px);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            transform: translateZ(40px);
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: #c0c0f0;
+            transform: translateZ(42px);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(0, 0, 10, 0.45); /* Slightly darker */
+            border: 1px solid rgba(150, 130, 190, 0.55);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(200, 200, 240, 0.6);
+        }
+
+        .input-group input:focus {
+            border-color: rgba(190, 170, 255, 1); /* Brighter purple */
+            box-shadow: 0 0 20px rgba(150, 130, 230, 0.7); /* Wider glow */
+        }
+
+        .login-button {
+            display: inline-block;
+            padding: 12px 35px;
+            margin-top: 15px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transform: translateZ(50px);
+            box-shadow: 0 6px 25px rgba(40, 30, 80, 0.5);
+        }
+
+        .login-button:hover {
+            background: linear-gradient(45deg, #7a22db, #3585fd);
+            transform: translateZ(50px) translateY(-4px) scale(1.03); /* Add slight scale */
+            box-shadow: 0 12px 35px rgba(80, 60, 150, 0.8); /* Much stronger hover shadow */
+        }
+
+        .login-button:active {
+            background: linear-gradient(45deg, #5a01bb, #1565ec);
+            transform: translateZ(50px) translateY(1px);
+            box-shadow: 0 4px 18px rgba(40, 30, 80, 0.6);
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-layer cosmic-background"></div>
+    <div class="background-layer galaxy-layer"></div>
+    <div class="background-layer star-layer-3"></div> <div class="background-layer star-layer-2"></div> <div class="background-layer star-layer-1"></div> <div class="shooting-star"></div>            <div class="container" id="loginCard">
+        <div class="card-content" id="cardContent">
+            <h2>Cosmic Login</h2>
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button class="login-button" id="loginButton">Enter the Void</button>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('loginCard');
+        const cardContent = document.getElementById('cardContent');
+        const loginButton = document.getElementById('loginButton');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        const MAX_ROTATION = 15;
+        const PARALLAX_FACTOR = 0.08;
+        const CONTENT_BASE_Z = 50;
+
+        function applyTransforms(e) {
+            const rect = card.getBoundingClientRect();
+            const mouseX = Math.max(-rect.width / 2, Math.min(rect.width / 2, e.clientX - rect.left - rect.width / 2));
+            const mouseY = Math.max(-rect.height / 2, Math.min(rect.height / 2, e.clientY - rect.top - rect.height / 2));
+
+            const rotateY = (mouseX / (rect.width / 2)) * MAX_ROTATION;
+            const rotateX = -(mouseY / (rect.height / 2)) * MAX_ROTATION;
+            const parallaxX = -rotateY * PARALLAX_FACTOR * 15;
+            const parallaxY = rotateX * PARALLAX_FACTOR * 15;
+
+            card.style.transition = 'transform 0.05s linear';
+            card.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            cardContent.style.transition = 'transform 0.05s linear';
+            cardContent.style.transform = `translateZ(${CONTENT_BASE_Z}px) translateX(${parallaxX}px) translateY(${parallaxY}px)`;
+        }
+
+        function resetTransforms() {
+            card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+            card.style.transform = 'translate(-50%, -50%) rotateY(0deg) rotateX(0deg)';
+
+            cardContent.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+            cardContent.style.transform = `translateZ(${CONTENT_BASE_Z}px) translateX(0px) translateY(0px)`;
+
+            setTimeout(() => {
+                card.style.transition = '';
+                cardContent.style.transition = '';
+            }, 500);
+        }
+
+        card.addEventListener('mousemove', applyTransforms);
+        card.addEventListener('mouseleave', resetTransforms);
+
+        loginButton.addEventListener('click', () => {
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            console.log('Login Attempt:');
+            console.log('Username:', username);
+            console.log('Password:', password);
+
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }else{
+                window.location.href = 'main.html';
+            }
+
+          
+        });
+
+        usernameInput.addEventListener('focus', resetTransforms);
+        passwordInput.addEventListener('focus', resetTransforms);
+    </script>
+</body>
+</html>
